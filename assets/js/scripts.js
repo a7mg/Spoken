@@ -1,6 +1,8 @@
 /*****************************/
 //Global
-
+var
+    lang = localStorage.getItem('language') || 'en',
+    carousels = [];
 //WINDOW EVENTS
 $(window)
     .on('load', onWindowLoad)
@@ -12,23 +14,18 @@ $(document)
 
 //FUNCTIONS
 function onDocumentReady() {
-    imagesGrid()
-    createSmooth();
-    initAos();
+    smoothCarousel($('.left-slider'));
+    smoothCarousel($('.right-slider'), true);
     playLottie();
+    document.getElementById('imagesGrid').play();
 }
 function onWindowLoad() {
-    // gsap.config({ nullTargetWarn: false })
-    // gsap.registerPlugin(ScrollTrigger)
-    // gsap.registerPlugin(SplitText)
-    // gsap.registerPlugin(ScrollSmoother)
-    // createSmooth();
+    carousels.forEach(c => { c.trigger('refresh.owl.carousel') });
+    window.dispatchEvent(new Event('resize'));
 }
 
 function onWindowResize() {
-
     playLottie();
-
 }
 
 $.fn.isInViewport = function () {
@@ -77,28 +74,12 @@ function createSmooth() {
     scroller.update();
     scroller.on('scroll', (event) => {
         playLottie();
-        // initAos();
-        // AOS.refresh();
-        // setTimeout(() => {
-        //     AOS.refresh();
-        // }, 300); // Adjust the delay as necessary
     });
     // scroller.on('call', (func, way, obj) => {
     //     if (func === 'refreshAOS') {
     //         AOS.refresh();
     //     }
     // });
-}
-function initAos() {
-    AOS.init({
-        easing: "ease-in-out-sine",
-        offset: ($(window).height() * 0.3),
-        once: true,
-        delay: 200,
-        // duration: 1e3,
-        duration: 700,
-        mirror: false,
-    });
 }
 
 // Page Scroll Interactions
@@ -116,10 +97,45 @@ function pageScroll() {
 }
 
 $(document)
-    .on('click', '.icons-grid .icon', function () {
+    .on('mouseenter', '.icons-grid .icon', function () {
         $('.icons-grid .icon').removeClass('active');
         var me = $(this);
         me.toggleClass('active');
-        $('.icon-large img').attr('src', me.find('img').attr('src'));
+        $('.icon-large img').attr('src', me.find('img:last').attr('src'));
         $('.icon-large h3').text(me.find('h6').text());
     })
+    .on('mouseenter', '.color-list > div', function () {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    })
+
+
+function smoothCarousel(element, rtl = false) {
+    let slider = element.owlCarousel({
+        center: true,
+        items: 2,
+        loop: true,
+        margin: 50,
+        nav: false,
+        dots: true,
+        rtl,
+        autoWidth: true,
+        autoplay: true,
+        slideTransition: 'linear',
+        autoplayTimeout: 6000,
+        autoplaySpeed: 6000,
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 2
+            },
+            600: {
+                items: 2
+            },
+            1000: {
+                items: 2
+            }
+        }
+    });
+    carousels.push(slider);
+}

@@ -3,13 +3,13 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Spoken</title>
+	<title>Spokn</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/x-icon" href="assets/images/fav.svg">
 
 	<link rel="stylesheet" href="assets/css/libs/locomotive-scroll.min.css">
 	<link rel="stylesheet" href="assets/css/libs/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/libs/aos@2.3.1.css">
+	<!-- <link rel="stylesheet" href="assets/css/libs/aos@2.3.1.css"> -->
 	<link rel="stylesheet" href="assets/css/libs/owl.carousel.min.css">
 	<link rel="stylesheet" href="assets/css/en/style.css">
 
@@ -46,47 +46,50 @@
 		</section>
 
 		<section data-scroll-section class="home-section images-grid">
-			<div class="grid">
+			<video autoplay loop muted playsinline id="imagesGrid">
+				<source src="assets/images/HomePage.mp4" type="video/mp4">
+			</video>
+			<!-- <div class="grid">
 
 				<div class="grid-item">
-					<img src="https://placehold.co/300x300" />
+					<div><img src="./assets/images/gallery/Group 38892.jpg" /></div>
 				</div>
-				<div class="grid-item">
-					<img src="https://placehold.co/300x600" />
+				<div class="grid-item grid-item--height2">
+					<div><img src="./assets/images/gallery/Group 38897.jpg" /></div>
 				</div>
 				<div class="grid-item grid-item--width2">
-					<img src="https://placehold.co/600x300" />
+					<div><img src="./assets/images/gallery/Screen Shot 2023-07-19 at 4.06.08 PM.jpg" /></div>
 				</div>
 				<div class="grid-item">
-					<img src="https://placehold.co/300x300" />
+					<div><img src="./assets/images/gallery/Group 38468.jpg" /></div>
 				</div>
 
-				<div class="grid-item">
-					<img src="https://placehold.co/300x600" />
+				<div class="grid-item grid-item--height2">
+					<div><img src="./assets/images/gallery/Group 38893.jpg" /></div>
 				</div>
 				<div class="grid-item">
-					<img src="https://placehold.co/300x300" />
+					<div><img src="./assets/images/gallery/Group 38898.jpg" /></div>
 				</div>
 				<div class="grid-item">
-					<img src="https://placehold.co/300x300" />
+					<div><img src="./assets/images/gallery/Screen Shot 2023-07-19 at 4.07.30 PM.jpg" /></div>
 				</div>
 				<div class="grid-item">
-					<img src="https://placehold.co/300x300" />
+					<div><img src="./assets/images/gallery/Group 38896.jpg" /></div>
 				</div>
 
 				<div class="grid-item grid-item--width2">
-					<img src="https://placehold.co/600x300" />
+					<div><img src="./assets/images/gallery/Group 38894.jpg" /></div>
 				</div>
 				<div class="grid-item grid-item--width2">
-					<img src="https://placehold.co/600x300" />
+					<div><img src="./assets/images/gallery/Group 38895.jpg" /></div>
 				</div>
 
-			</div>
+			</div> -->
 		</section>
 
 		<section data-scroll-section class="home-section logo">
 			<div class="container">
-				<lottie-player loop src="assets/js/animate/spokn.json"></lottie-player>
+				<lottie-player loop src="assets/js/animation/spokn.json"></lottie-player>
 			</div>
 		</section>
 
@@ -103,7 +106,7 @@
 				</div>
 			</div>
 			<div class="color-list">
-				<div>
+				<div class="active">
 					<div class="color-info">
 						<div>#7a31ea</div>
 						<div>Color</div>
@@ -149,7 +152,7 @@
 						<div class="icons-grid">
 							<div class="row">
 								<div class="col-2">
-									<div class="icon">
+									<div class="icon active">
 										<img src="assets/images/brand-icons/users.svg" alt="">
 										<img src="assets/images/brand-icons/users-colored.svg" alt="">
 										<h6>Users</h6>
@@ -300,7 +303,7 @@
 					</div>
 					<div class="col-sm-5">
 						<div class="icon-large">
-							<img src="assets/images/brand-icons/users.svg" alt="">
+							<img src="assets/images/brand-icons/users-colored.svg" alt="">
 							<h3>Users</h3>
 						</div>
 					</div>
@@ -329,6 +332,7 @@
 
 		<section data-scroll-section class="home-section active-anim">
 			<lottie-player loop src="assets/js/animation/shopping.json"></lottie-player>
+			<!-- <lottie-player loop src="assets/js/animation/FUll-Frame.json"></lottie-player> -->
 		</section>
 
 		<section data-scroll-section class="home-section shaping-section">
@@ -336,13 +340,12 @@
 				<h3>At Spokn, we are shaping a new</h3>
 				<h2>Wave of communication.</h2>
 				<div class="anim-erea">
-					<lottie-player loop src="assets/js/animate/Page6/SPOKN.json"></lottie-player>
+					<lottie-player loop src="assets/js/animation/spokn-animation/animation.json"></lottie-player>
 				</div>
 			</div>
 		</section>
 
 		<section data-scroll-section class="home-section sliders">
-			<!-- data-aos="slide-left" data-aos-delay="300" -->
 			<div class="left-slider owl-carousel">
 				<div class="item">
 					<img src="assets/images/sliders/slide-1-1.jpg" alt="1">
@@ -354,7 +357,6 @@
 					<img src="assets/images/sliders/slide-1-3.jpg" alt="1">
 				</div>
 			</div>
-			<!-- data-aos="slide-right" data-aos-delay="300" -->
 			<div class="right-slider owl-carousel">
 				<div class="item">
 					<img src="assets/images/sliders/slide-2-1.jpg" alt="1">
@@ -379,7 +381,8 @@
 						scrambled it to make a type specimen book.</p>
 
 					<div class="img-container">
-						<lottie-player loop src="assets/js/animate/Page8/data.json"></lottie-player>
+						<lottie-player loop
+							src="assets/js/animation/mobile-screen-animation/animation.json"></lottie-player>
 						<img src="assets/images/spoken-mobile.jpg" alt="">
 					</div>
 
@@ -424,17 +427,16 @@
 
 	<script src="assets/js/libs/jquery.min.3.3.1.js"></script>
 	<script src="assets/js/libs/owl.carousel.min.js"></script>
-	<script src="assets/js/libs/aos@2.3.1.js"></script>
-	<script src="assets/js/libs/locomotive-scroll.min.js"></script>
-	<script src="assets/js/carousel.js"></script>
+	<!-- <script src="assets/js/libs/aos@2.3.1.js"></script> -->
+	<!-- <script src="assets/js/libs/locomotive-scroll.min.js"></script> -->
 
 	<!-- <script src="assets/js/libs/gsap/gsap.min.js"></script>
 	<script src="assets/js/libs/gsap/scrollTrigger.min.js"></script>
 	<script src="assets/js/libs/gsap/ScrollSmoother.min.js"></script>
 	<script src="assets/js/libs/gsap/SplitText.min.js"></script> -->
 
-	<script src="https://masonry.desandro.com/masonry.pkgd.js"></script>
-	<script src="https://imagesloaded.desandro.com/imagesloaded.pkgd.js"></script>
+	<!-- <script src="https://masonry.desandro.com/masonry.pkgd.js"></script>
+	<script src="https://imagesloaded.desandro.com/imagesloaded.pkgd.js"></script> -->
 
 	<script src="assets/js/scripts.js"></script>
 </body>
