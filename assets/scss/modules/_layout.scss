@@ -118,16 +118,6 @@ header {
                 transform: translateY(#{rem(-5)});
             }
         }
-        &.open {
-            > i {
-                &:first-child {
-                    transform: translateY(#{rem(5)}) rotateZ(135deg);
-                }
-                &:nth-child(2) {
-                    transform: translateY(#{rem(-5)}) rotateZ(45deg);
-                }
-            }
-        }
         span {
             position: absolute;
             right: 100%;
@@ -148,6 +138,14 @@ body {
     }
     &.menu-opened {
         .nav-btn {
+            > i {
+                &:first-child {
+                    transform: translateY(#{rem(5)}) rotateZ(135deg);
+                }
+                &:nth-child(2) {
+                    transform: translateY(#{rem(-5)}) rotateZ(45deg);
+                }
+            }
             span {
                 opacity: 1;
                 visibility: visible;

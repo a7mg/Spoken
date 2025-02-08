@@ -127,7 +127,6 @@ $(document)
     })
     .on('click', '.nav-btn', function () {
         $('body').toggleClass('menu-opened');
-        $(this).toggleClass('open');
     })
     .on('click', '.nav-list a', function () {
         $('html, body').animate({
