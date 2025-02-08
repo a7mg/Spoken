@@ -29,7 +29,7 @@ body {
   box-sizing: border-box;
   color: $black;
   font-family: $font-family-default;
-  font-weight: $fontRegular;
+  font-weight: $fontBook;
   background-color: $white;
   section {
     overflow: hidden;
@@ -61,7 +61,7 @@ h6 {
   margin: 0px;
   padding: 0px;
   font-weight: normal;
-  font-weight: $fontSemiBold;
+  font-weight: $fontHeavy;
 }
 
 p {
@@ -225,11 +225,32 @@ button:focus {
 .line-normal {
   line-height: normal;
 }
-
-.font-handblack {
-  font-family: $fontBlackHand;
-}
-.font-avenir {
-  font-family: $fontAvenir;
+.w-100 {
+  width: 100%;
 }
 /****************/
+.anim-wrap {
+  overflow: hidden;
+}
+.base-fit {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 50%;
+  }
+  video,
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

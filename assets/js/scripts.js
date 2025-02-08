@@ -14,10 +14,20 @@ $(document)
 
 //FUNCTIONS
 function onDocumentReady() {
+    if (location.href.includes('127.0.0.1')) {
+        $("menu").load("partial/menu.html");
+        $("header").load("partial/header.html");
+        $("footer").load("partial/footer.html");
+    } else {
+        handleCursor();
+    }
+
     smoothCarousel($('.left-slider'));
     smoothCarousel($('.right-slider'), true);
     playLottie();
-    document.getElementById('imagesGrid').play();
+    if (document.getElementById('imagesGrid')) {
+        document.getElementById('imagesGrid').play();
+    }
 }
 function onWindowLoad() {
     carousels.forEach(c => { c.trigger('refresh.owl.carousel') });
@@ -26,6 +36,13 @@ function onWindowLoad() {
 
 function onWindowResize() {
     playLottie();
+    $($("section").get().reverse()).each((i, n) => {
+        if ($(n).offset().top >= $(window).scrollTop()) {
+            $('.nav-list ul a').removeClass('active');
+            let target = $('.nav-list ul').find('a[href="#' + $(n).attr('id') + '"]');
+            if (target) target.addClass('active');
+        }
+    });
 }
 
 $.fn.isInViewport = function () {
@@ -108,7 +125,15 @@ $(document)
         $(this).siblings().removeClass('active');
         $(this).addClass('active');
     })
-
+    .on('click', '.nav-btn', function () {
+        $('body').toggleClass('menu-opened');
+        $(this).toggleClass('open');
+    })
+    .on('click', '.nav-list a', function () {
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top
+        })
+    })
 
 function smoothCarousel(element, rtl = false) {
     let slider = element.owlCarousel({

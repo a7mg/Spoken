@@ -1,8 +1,7 @@
-$fontLight: 300;
-$fontRegular: 400;
+$fontBook: 400;
 $fontMedium: 500;
-$fontSemiBold: 600;
-$fontBold: 700;
+$fontHeavy: 600;
+$fontBlack: 700;
 
 $base-size: 18;
 @function rem($target, $context: $base-size) {
@@ -14,6 +13,9 @@ $white: #FFFFFF;
 $black: #000000;
 
 $primary: #6C2FEB;
+$blue: #341BF7;
+$orange: #FF3C00;
+$gray: #888888;
 
 
 $imgPath: "../../images";

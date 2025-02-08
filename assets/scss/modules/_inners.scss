@@ -1,0 +1,96 @@
+.inner-section {
+    .full-h-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100dvh;
+        padding-top: 25dvh;
+    }
+    &:not(.inner-hero) .full-h-wrapper {
+        padding-bottom: 10dvh;
+    }
+    .content-wrapper {
+        padding: 5dvh 0;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .media-content {
+        text-align: center;
+        height: 40dvh;
+        img {
+            max-height: 100%;
+        }
+    }
+    .section-foot {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        > div {
+            width: rem(365);
+            &:nth-child(2) {
+                text-align: center;
+            }
+            &:nth-child(3) {
+                text-align: end;
+            }
+            img {
+                height: rem(70);
+            }
+        }
+        h2 {
+            font-size: rem(25);
+            margin: 0 0 rem(14);
+            font-weight: $fontHeavy;
+        }
+        p {
+            font-size: rem(14);
+            line-height: rem(20);
+            font-weight: $fontBook;
+        }
+        a.download {
+            font-size: rem(25);
+            display: inline-flex;
+            align-items: center;
+            color: $black;
+            font-weight: $fontMedium;
+            &:after {
+                width: rem(18.5);
+                height: rem(22);
+                content: "";
+                background: url(../../images/icons/arrow-down-orange.svg) no-repeat center / 100%;
+                margin-inline-start: rem(9);
+            }
+        }
+    }
+}
+.inner-container {
+    @media (min-width: 1200px) {
+        max-width: 80%;
+        margin: auto;
+    }
+}
+.gray-bg {
+    background-color: #E8E8E8;
+}
+.inner-hero {
+    .text-wrapper {
+        display: flex;
+        > div {
+            width: 50%;
+        }
+        h1 {
+            font-weight: $fontHeavy;
+            margin: 0;
+        }
+        p {
+            font-weight: $fontBook;
+        }
+    }
+    .image-wrapper {
+        @extend .base-fit;
+        margin-top: auto;
+        height: 50vh;
+    }
+}
