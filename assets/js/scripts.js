@@ -15,13 +15,9 @@ $(document)
 //FUNCTIONS
 function onDocumentReady() {
     if (location.href.includes('127.0.0.1')) {
-        $("menu").load("partial/menu.html");
         $("header").load("partial/header.html");
         $("footer").load("partial/footer.html");
-    } else {
-        handleCursor();
     }
-
     smoothCarousel($('.left-slider'));
     smoothCarousel($('.right-slider'), true);
     playLottie();
@@ -32,14 +28,22 @@ function onDocumentReady() {
 function onWindowLoad() {
     carousels.forEach(c => { c.trigger('refresh.owl.carousel') });
     window.dispatchEvent(new Event('resize'));
+
+    $('.nav-list > li, .nav-list > li > a, menu div > a').removeClass('active');
+    $('.nav-list > li > a, menu div > a').each((i, el) => {
+        if ($(el).attr('href').includes(location.pathname)) {
+            $(el).parent().addClass('active');
+            $(el).addClass('active');
+        }
+    });
 }
 
 function onWindowResize() {
     playLottie();
     $($("section").get().reverse()).each((i, n) => {
         if ($(n).offset().top >= $(window).scrollTop()) {
-            $('.nav-list ul a').removeClass('active');
-            let target = $('.nav-list ul').find('a[href="#' + $(n).attr('id') + '"]');
+            $('.nav-list ul a, menu ul a').removeClass('active');
+            let target = $('.nav-list ul, menu ul').find('a[href="#' + $(n).attr('id') + '"]');
             if (target) target.addClass('active');
         }
     });
@@ -115,11 +119,19 @@ function pageScroll() {
 
 $(document)
     .on('mouseenter', '.icons-grid .icon', function () {
-        $('.icons-grid .icon').removeClass('active');
         var me = $(this);
+        let parent = me.parents('.icons');
+        parent.find('.icons-grid .icon').removeClass('active');
         me.toggleClass('active');
-        $('.icon-large img').attr('src', me.find('img:last').attr('src'));
-        $('.icon-large h3').text(me.find('h6').text());
+        parent.find('.icon-large img').attr('src', me.find('img:last').attr('src'));
+        parent.find('.icon-large h3').text(me.find('h6').text());
+    })
+    .on('mouseenter', '.visuals-grid .visual', function () {
+        var me = $(this);
+        let parent = me.parents('.visuals');
+        parent.find('.visuals-grid .visual').removeClass('active');
+        me.toggleClass('active');
+        parent.find('.visuals-large img').attr('src', me.find('img').attr('src'));
     })
     .on('mouseenter', '.color-list > div', function () {
         $(this).siblings().removeClass('active');
@@ -128,10 +140,14 @@ $(document)
     .on('click', '.nav-btn', function () {
         $('body').toggleClass('menu-opened');
     })
-    .on('click', '.nav-list a', function () {
+    .on('click', '.nav-list a, menu ul a', function () {
+        if (!$($(this).attr('href')).length) return;
         $('html, body').animate({
             scrollTop: $($(this).attr('href')).offset().top
         })
+    })
+    .on('click', 'menu a', function () {
+        $('body').removeClass('menu-opened');
     })
 
 function smoothCarousel(element, rtl = false) {

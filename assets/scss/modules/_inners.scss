@@ -4,6 +4,9 @@
         flex-direction: column;
         min-height: 100dvh;
         padding-top: 25dvh;
+        &.sm-p {
+            padding-top: 15dvh;
+        }
     }
     &:not(.inner-hero) .full-h-wrapper {
         padding-bottom: 10dvh;
@@ -29,11 +32,18 @@
         justify-content: space-between;
         > div {
             width: rem(365);
+            width: calc(100% / 3);
             &:nth-child(2) {
                 text-align: center;
+                @media (max-width: 768px) {
+                    display: none;
+                }
             }
             &:nth-child(3) {
                 text-align: end;
+                @media (max-width: 768px) {
+                    display: block;
+                }
             }
             img {
                 height: rem(70);
@@ -42,19 +52,19 @@
         h2 {
             font-size: rem(25);
             margin: 0 0 rem(14);
-            font-weight: $fontHeavy;
+            font-family: $fontHeavy;
         }
         p {
             font-size: rem(14);
             line-height: rem(20);
-            font-weight: $fontBook;
+            font-family: $fontBook;
         }
         a.download {
             font-size: rem(25);
             display: inline-flex;
             align-items: center;
             color: $black;
-            font-weight: $fontMedium;
+            font-family: $fontMedium;
             &:after {
                 width: rem(18.5);
                 height: rem(22);
@@ -62,17 +72,31 @@
                 background: url(../../images/icons/arrow-down-orange.svg) no-repeat center / 100%;
                 margin-inline-start: rem(9);
             }
+            &:hover {
+                color: $secondary;
+            }
+        }
+    }
+
+    .icons {
+        .icons-grid {
+            .icon {
+                margin-bottom: rem(30);
+                img {
+                    height: rem(50);
+                }
+            }
         }
     }
 }
 .inner-container {
     @media (min-width: 1200px) {
-        max-width: 80%;
+        max-width: 84%;
         margin: auto;
     }
 }
 .gray-bg {
-    background-color: #E8E8E8;
+    background-color: #e8e8e8;
 }
 .inner-hero {
     .text-wrapper {
@@ -81,11 +105,11 @@
             width: 50%;
         }
         h1 {
-            font-weight: $fontHeavy;
+            font-family: $fontHeavy;
             margin: 0;
         }
         p {
-            font-weight: $fontBook;
+            font-family: $fontBook;
         }
     }
     .image-wrapper {

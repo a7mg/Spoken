@@ -5,7 +5,10 @@
 .container-sm,
 .container-xl,
 .container-xxl {
-    --bs-gutter-x: 30px;
+    --bs-gutter-x: 50px;
+    @media (min-width: 767px) {
+        --bs-gutter-x: 100px;
+    }
 }
 header {
     position: fixed;
@@ -45,16 +48,19 @@ header {
     }
     .nav-list {
         display: flex;
+        @media (max-width: 768px) {
+            display: none;
+        }
         > li {
             + li {
                 margin-inline-start: rem(35);
             }
             > a {
                 font-size: rem(19);
-                font-weight: $fontBook;
+                font-family: $fontBook;
                 &:hover,
                 &.active {
-                    color: $blue;
+                    color: $primaryB;
                 }
             }
             &.active {
@@ -67,7 +73,7 @@ header {
         a {
             color: $gray;
             &.active {
-                font-weight: $fontBlack;
+                font-family: $fontBlack;
             }
         }
         ul {
@@ -77,10 +83,10 @@ header {
             visibility: hidden;
             a {
                 font-size: rem(12);
-                font-weight: $fontMedium;
+                font-family: $fontMedium;
                 &:hover,
                 &.active {
-                    color: $orange;
+                    color: $secondary;
                 }
             }
         }
@@ -96,9 +102,9 @@ header {
         margin-inline-start: rem(70);
         height: rem(28);
         &:hover {
-            color: $blue;
+            color: $primaryB;
             > i {
-                background-color: $blue;
+                background-color: $primaryB;
             }
         }
         display: flex;
@@ -109,7 +115,7 @@ header {
             width: rem(28);
             height: rem(10);
             margin: 0 auto;
-            background-color: $orange;
+            background-color: $secondary;
             transition: all linear 0.2s;
             &:first-child {
                 transform: translateY(#{rem(5)}) rotateZ(90deg);
@@ -123,7 +129,7 @@ header {
             right: 100%;
             margin-inline-end: rem(25);
             font-size: rem(28);
-            font-weight: $fontMedium;
+            font-family: $fontMedium;
             opacity: 0;
             visibility: hidden;
             transition: all ease 0.3s;
@@ -131,7 +137,6 @@ header {
         }
     }
 }
-
 body {
     .main-wrapper > * {
         transition: all ease 0.3s;
@@ -164,7 +169,7 @@ body {
             .content {
                 opacity: 1;
                 visibility: visible;
-                transition-delay: 0;
+                transition-delay: 0.8s;
             }
         }
     }
@@ -176,18 +181,71 @@ menu {
     z-index: 9;
     top: 0;
     left: 0;
-    transform: translateY(-100%);
     width: 100vw;
     height: 100dvh;
     background-color: #fff;
+    transform: translateY(-100%);
     transition: all 800ms cubic-bezier(0.86, 0, 0.07, 1);
     .content {
         height: 100%;
         opacity: 0;
         visibility: hidden;
+        padding-top: calc(10dvh + #{rem(100)});
+        padding-bottom: 10dvh;
         transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
-        transition-delay: 0.5s;
-        padding: rem(320) 0 rem(130);
+        // transition-delay: 0s;
+        display: flex;
+        flex-direction: column;
+        > div {
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            width: 100%;
+            overflow: auto;
+        }
+    }
+    a {
+        color: $gray;
+        &:hover, &.active {
+            color: $secondary;
+        }
+    }
+    .menu-item {
+        display: flex;
+        align-items: start;
+        width: calc(100% / 3);
+        padding-inline-end: rem(20);
+        padding-block: 4dvh;
+        @media (max-width: 992px) {
+            width: 50%;
+        }
+        .number {
+            font-size: rem(72);
+            line-height: 1;
+            font-family: $fontBlack;
+            margin-inline-end: rem(30);
+        }
+        div > a {
+            display: block;
+            color: $black;
+            font-size: rem(40);
+            font-family: $fontMedium;
+            margin-bottom: rem(20);
+            &:hover {
+                color: $primaryB;
+            }
+        }
+        @media (max-width: 768px) {
+            .number {
+                font-size: rem(45);
+                margin-inline-end: rem(20);
+            }
+            div > a {
+                font-size: rem(35);
+                line-height: 1.2;
+                margin-bottom: rem(15);
+            }
+        }
     }
 }
 
@@ -242,7 +300,7 @@ footer {
     }
 }
 .desktop-vr {
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
         display: none;
     }
 }

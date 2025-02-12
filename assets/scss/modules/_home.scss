@@ -216,63 +216,6 @@
         .container {
             margin: auto;
         }
-        .icons-grid {
-            .icon {
-                position: relative;
-                margin-bottom: rem(40);
-                cursor: pointer;
-                img {
-                    margin: auto;
-                    height: rem(70);
-                    opacity: 0.8;
-                    transition: all ease 0.4s;
-                    &:first-child {
-                        display: block;
-                    }
-                    &:nth-child(2) {
-                        display: none;
-                    }
-                    & + img {
-                        // position: absolute;
-                        // top: 0;
-                        // left: 50%;
-                        // transform: translateX(-50%);
-                        // z-index: 1;
-                    }
-                }
-                &.active {
-                    img {
-                        &:first-child {
-                            display: none;
-                        }
-                        &:nth-child(2) {
-                            display: block;
-                            opacity: 1;
-                        }
-                    }
-                }
-            }
-            h6 {
-                color: #b3b3b3;
-                font-size: rem(12);
-                margin-top: rem(10);
-                text-transform: capitalize;
-            }
-        }
-        .icon-large {
-            @media (max-width: 767px) {
-                margin-top: rem(80);
-            }
-            img {
-                height: rem(300);
-                margin-bottom: rem(80);
-            }
-            h3 {
-                font-size: rem(66);
-                margin: 0;
-                text-transform: capitalize;
-            }
-        }
     }
     &.active-anim {
         padding: rem(100) 0;
@@ -404,6 +347,70 @@
             margin-top: rem(60);
             > * {
                 width: rem(103);
+            }
+        }
+    }
+}
+
+.icons {
+    .icons-grid {
+        .icon {
+            position: relative;
+            margin-bottom: rem(40);
+            cursor: pointer;
+            img {
+                margin: auto;
+                height: rem(70);
+                opacity: 0.8;
+                transition: all ease 0.4s;
+                &:first-child {
+                    display: block;
+                }
+                &:nth-child(2) {
+                    display: none;
+                }
+            }
+            &.active {
+                img {
+                    &:first-child {
+                        display: none;
+                    }
+                    &:nth-child(2) {
+                        display: block;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        h6 {
+            color: #b3b3b3;
+            font-size: rem(12);
+            margin-top: rem(10);
+            text-transform: capitalize;
+        }
+    }
+    .icon-large {
+        @media (max-width: 767px) {
+            margin-top: rem(80);
+        }
+        img {
+            height: rem(300);
+            margin-bottom: rem(80);
+        }
+        h3 {
+            font-size: rem(66);
+            margin: 0;
+            text-transform: capitalize;
+        }
+    }
+}
+.visuals {
+    .visuals-grid {
+        .visual {
+            cursor: pointer;
+            // margin-bottom: rem(55);
+            &:not(.active) {
+                opacity: 0.2;
             }
         }
     }

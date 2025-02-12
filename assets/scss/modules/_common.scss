@@ -2,10 +2,10 @@
   scroll-behavior: initial;
 }
 html {
-  @media (min-width: 1400px) {
+  @media (min-width: 1600px) {
     font-size: 16px;
   }
-  @media (max-width: 1400px) {
+  @media (max-width: 1600px) {
     font-size: 14px;
   }
   @media (max-width: 992px) {
@@ -29,7 +29,6 @@ body {
   box-sizing: border-box;
   color: $black;
   font-family: $font-family-default;
-  font-weight: $fontBook;
   background-color: $white;
   section {
     overflow: hidden;
@@ -61,7 +60,7 @@ h6 {
   margin: 0px;
   padding: 0px;
   font-weight: normal;
-  font-weight: $fontHeavy;
+  font-family: $fontHeavy;
 }
 
 p {
