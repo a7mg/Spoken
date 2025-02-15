@@ -111,7 +111,7 @@
             }
             &.grid-item--width2 {
                 width: calc((100% / 5) * 2);
-                >div::before {
+                > div::before {
                     padding-top: 50%;
                 }
             }
@@ -257,11 +257,15 @@
     }
     &.sliders {
         background-color: #000000;
-        padding: rem(115) 0;
+        padding: 10vh 0;
         .left-slider {
-            margin-bottom: rem(65);
+            margin-bottom: 10vh;
+        }
+        .item {
+            padding: 0 rem(25);
         }
         img {
+            height: 35vh;
             max-height: rem(380);
         }
     }
@@ -411,6 +415,50 @@
             // margin-bottom: rem(55);
             &:not(.active) {
                 opacity: 0.2;
+            }
+        }
+        &.has-active {
+            .visual {
+                img {
+                    border: 2px solid transparent;
+                }
+                &.active img {
+                    border-color: $primaryB;
+                }
+            }
+        }
+    }
+    .visuals-large {
+        img {
+            max-height: 50vh;
+        }
+        &.mac {
+            position: relative;
+            img:first-child {
+                // width: 100%;
+            }
+            img:last-child {
+                position: absolute;
+                top: 9.5%;
+                left: 0;
+                right: 0;
+                margin: auto;
+                width: 73%;
+                height: 68.5%;
+                max-height: 35vh;
+            }
+        }
+        &.mobile {
+            position: relative;
+            img:last-child {
+                position: absolute;
+                top: 10.8%;
+                left: 0;
+                right: 0;
+                margin: auto;
+                width: 100%;
+                height: 100%;
+                max-height: 42vh;
             }
         }
     }

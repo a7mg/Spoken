@@ -24,6 +24,19 @@ function onDocumentReady() {
     if (document.getElementById('imagesGrid')) {
         document.getElementById('imagesGrid').play();
     }
+    $('.owl-carousel.auto-width').each(function (i, n) {
+        smoothCarousel($(n));
+        // let slider = $(n).owlCarousel({
+        //     loop: true,
+        //     autoWidth: true,
+        //     autoplay: true,
+        //     autoplayTimeout: 6000,
+        //     autoplaySpeed: 6000,
+        //     slideTransition: 'linear',
+        //     // autoplayHoverPause: true
+        // });
+        // carousels.push(slider);
+    });
 }
 function onWindowLoad() {
     carousels.forEach(c => { c.trigger('refresh.owl.carousel') });
@@ -131,7 +144,7 @@ $(document)
         let parent = me.parents('.visuals');
         parent.find('.visuals-grid .visual').removeClass('active');
         me.toggleClass('active');
-        parent.find('.visuals-large img').attr('src', me.find('img').attr('src'));
+        parent.find('.visuals-large img:last').attr('src', me.find('img').attr('src'));
     })
     .on('mouseenter', '.color-list > div', function () {
         $(this).siblings().removeClass('active');
@@ -153,11 +166,11 @@ $(document)
 function smoothCarousel(element, rtl = false) {
     let slider = element.owlCarousel({
         center: true,
-        items: 2,
+        // items: 2,
         loop: true,
-        margin: 50,
+        // margin: 50,
         nav: false,
-        dots: true,
+        dots: false,
         rtl,
         autoWidth: true,
         autoplay: true,
@@ -165,6 +178,8 @@ function smoothCarousel(element, rtl = false) {
         autoplayTimeout: 6000,
         autoplaySpeed: 6000,
         autoplayHoverPause: true,
+        touchDrag: true,
+        mouseDrag: true,
         responsive: {
             0: {
                 items: 2
