@@ -14,7 +14,7 @@ $(document)
 
 //FUNCTIONS
 function onDocumentReady() {
-    if (location.href.includes('127.0.0.1')) {
+    if (location.href.includes('127.0.0.1') || location.href.includes('surge')) {
         $("header").load("partial/header.html");
         $("footer").load("partial/footer.html");
     }

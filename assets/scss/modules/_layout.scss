@@ -232,7 +232,7 @@ menu {
             font-size: rem(40);
             font-family: $fontMedium;
             margin-bottom: rem(20);
-            &:hover {
+            &:hover, &.active {
                 color: $primaryB;
             }
         }
