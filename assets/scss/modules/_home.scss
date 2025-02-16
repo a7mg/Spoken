@@ -3,26 +3,40 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: rem(150) 0;
+    padding: rem(50) 0;
+    padding-left: 5%;
+    padding-right: 5%;
+    @media (max-width: 580px) {
+        padding-left: rem(30);
+        padding-right: rem(30);
+    }
     .logo-container {
         img {
-            height: rem(110);
+            width: 25%;
+            @media (max-width: 580px) {
+                width: auto;
+                height: rem(110);
+            }
         }
     }
     .text {
         font-size: rem(55);
-        margin-top: rem(40);
+        font-size: 2.75vw;
+        margin-top: 2vw;
         @media (max-width: 580px) {
             font-size: rem(40);
+            margin-top: rem(40);
         }
     }
     .title {
         font-size: rem(110);
+        font-size: 5vw;
         color: $primary;
-        margin-bottom: rem(130);
+        margin-bottom: 6.5vw;
         font-family: $fontBlackHand;
         @media (max-width: 580px) {
             font-size: rem(70);
+            margin-bottom: rem(130);
         }
     }
     .down-arrow {
@@ -33,7 +47,7 @@
         background: url(#{$imgPath}/icons/arrow-down-primary.svg) center / 100%;
     }
     .art-wrapper {
-        max-width: rem(410);
+        // max-width: rem(410);
         @media (max-width: 767px) {
             margin: auto;
             max-width: rem(410);
