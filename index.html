@@ -17,6 +17,13 @@
 </head>
 
 <body>
+	
+    <div class="rotate-popup" data-scroll-sticky>
+        <div class="phone-container">
+            <div class="screen"></div>
+        </div>
+        <p class="message">Please rotate your device for the best experience</p>
+    </div>
 
 	<div data-scroll-container>
 		<section data-scroll-section class="home-section hero">
@@ -30,6 +37,12 @@
 								</div>
 								<div class="text">At Spokn, we are shaping a new</div>
 								<div class="title split-words">Wave of communication.</div>
+								<div class="link">
+									<a href="logo.html" class="brand-manual-link" data-hover="Spokn Brand Manual">
+										Spokn Brand Manual
+										<img src="assets/images/icons/arrow-orange-top-right.svg" alt="">
+									</a>
+								</div>
 								<div class="overflow-hidden">
 									<span class="down-arrow"></span>
 								</div>
@@ -93,53 +106,108 @@
 			</div>
 		</section>
 
-		<section data-scroll-section class="home-section color-palette">
+		<section data-scroll-section class="home-section color-palette primary">
 			<div class="gradient">
 				<div class="container">
-					<div class="section-title split-words">Color Palette</div>
-
-					<div class="color-info">
-						<div>Primary</div>
-						<div>Web Gradient</div>
-						<div>Color</div>
+					<div class="row align-items-end">
+						<div class="col">
+							<div class="section-title split-words">Color Palette</div>
+							<div class="color-info">
+								<div class="primary">Primary</div>
+								<div class="secondary">Secondary</div>
+								<div class="primary">Web Gradient</div>
+								<div class="secondary">Web Color</div>
+								<div>Color</div>
+							</div>
+						</div>
+						<div class="col text-end">
+							<div class="secondary">
+								<button class="btn">Show Primary Color</button>
+							</div>
+							<div class="primary">
+								<button class="btn">Show Secondary Color</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="color-list">
-				<div class="active">
-					<div class="color-info">
-						<div>#7a31ea</div>
-						<div>Color</div>
+			<div class="primary">
+				<div class="color-list">
+					<div class="active" style="background-color: #871CF3">
+						<div class="color-info">
+							<div>#7a31ea</div>
+							<div>Color</div>
+						</div>
 					</div>
-				</div>
-				<div>
-					<div class="color-info">
-						<div>#7a31ea</div>
-						<div>Color</div>
+					<div style="background-color: #201CF9">
+						<div class="color-info">
+							<div>#7a31ea</div>
+							<div>Color</div>
+						</div>
 					</div>
-				</div>
-				<div>
-					<div class="color-info">
-						<div>#7a31ea</div>
-						<div>Color</div>
+					<!-- <div style="background-color: #956fe3">
+						<div class="color-info">
+							<div>#7a31ea</div>
+							<div>Color</div>
+						</div>
 					</div>
-				</div>
-				<div>
-					<div class="color-info">
-						<div>#7a31ea</div>
-						<div>Color</div>
+					<div style="background-color: #1d2aef">
+						<div class="color-info">
+							<div>#7a31ea</div>
+							<div>Color</div>
+						</div>
 					</div>
-				</div>
-				<div>
-					<div class="color-info">
-						<div>#7a31ea</div>
-						<div>Color</div>
+					<div style="background-color: #0217be">
+						<div class="color-info">
+							<div>#7a31ea</div>
+							<div>Color</div>
+						</div>
 					</div>
+					<div style="background-color: #8f90f2">
+						<div class="color-info">
+							<div>#7a31ea</div>
+							<div>Color</div>
+						</div>
+					</div> -->
 				</div>
-				<div>
-					<div class="color-info">
-						<div>#7a31ea</div>
-						<div>Color</div>
+			</div>
+			<div class="secondary">
+				<div class="color-list">
+					<!-- <div style="background-color: #FF3C00">
+						<div class="color-info">
+							<div>#7a31ea</div>
+							<div>Secondary</div>
+						</div>
+					</div> -->
+					<div class="active" style="background-color: #FFAD0D">
+						<div class="color-info">
+							<div>#7a31ea</div>
+							<div>Secondary</div>
+						</div>
+					</div>
+					<div style="background-color: #000000">
+						<div class="color-info">
+							<div>#7a31ea</div>
+							<div>Text</div>
+						</div>
+					</div>
+					<div style="background-color: #E8E8E8">
+						<div class="color-info text-black">
+							<div>#7a31ea</div>
+							<div>Background</div>
+						</div>
+					</div>
+					<div style="background-color: #888888">
+						<div class="color-info">
+							<div>#7a31ea</div>
+							<div>Text inactive</div>
+						</div>
+					</div>
+					<div style="background-color: #FFFFFF">
+						<div class="color-info text-black">
+							<div>#7a31ea</div>
+							<div>Background</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -387,7 +455,7 @@
 					</div>
 
 					<div class="link">
-						<a href="#" data-hover="Spokn Brand Manual">
+						<a href="logo.html" class="brand-manual-link" data-hover="Spokn Brand Manual">
 							Spokn Brand Manual
 							<img src="assets/images/icons/arrow-orange-top-right.svg" alt="">
 						</a>

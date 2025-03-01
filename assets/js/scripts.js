@@ -37,8 +37,12 @@ function onDocumentReady() {
         // });
         // carousels.push(slider);
     });
+    
+    checkOrientation();
 }
+var activeList;
 function onWindowLoad() {
+    checkOrientation();
     carousels.forEach(c => { c.trigger('refresh.owl.carousel') });
     window.dispatchEvent(new Event('resize'));
 
@@ -49,19 +53,39 @@ function onWindowLoad() {
             $(el).addClass('active');
         }
     });
+    activateChild();
 }
-
-function onWindowResize() {
-    playLottie();
+function activateChild() {
+    let divId;
     $($("section").get().reverse()).each((i, n) => {
         if ($(n).offset().top >= $(window).scrollTop()) {
             $('.nav-list ul a, menu ul a').removeClass('active');
-            let target = $('.nav-list ul, menu ul').find('a[href="#' + $(n).attr('id') + '"]');
-            if (target) target.addClass('active');
+            divId = $(n).attr('id');
         }
     });
+    if (divId) {
+        $('.nav-list > li.active ul a, menu div.active ul a').each((x, e) => {
+            let href = $(e).attr('href');
+            let isTarget = href.substr(href.indexOf("#")) == ('#' + divId);
+            if (isTarget) $(e).addClass('active');
+        });
+    }
 }
-
+function onWindowResize() {
+    playLottie();
+    activateChild();
+    checkOrientation();
+}
+function checkOrientation() {
+    const popup = $('rotate-popup');
+    if (window.innerWidth < window.innerHeight) {
+        popup.css('display', 'flex');
+        setTimeout(() => { popup.css('opacity', 1); }, 100);
+    } else {
+        popup.css('opacity', 0);
+        setTimeout(() => { popup.css('display', 'none'); }, 500);
+    }
+}
 $.fn.isInViewport = function () {
     var elementTop = $(this).offset().top;
     var elementBottom = elementTop + $(this).outerHeight();
@@ -146,6 +170,12 @@ $(document)
         me.toggleClass('active');
         parent.find('.visuals-large img:last').attr('src', me.find('img').attr('src'));
     })
+    .on('click', '.primary .btn', function () {
+        $('.color-palette').removeClass('primary').addClass('secondary');
+    })
+    .on('click', '.secondary .btn', function () {
+        $('.color-palette').removeClass('secondary').addClass('primary');
+    })
     .on('mouseenter', '.color-list > div', function () {
         $(this).siblings().removeClass('active');
         $(this).addClass('active');
@@ -154,10 +184,11 @@ $(document)
         $('body').toggleClass('menu-opened');
     })
     .on('click', '.nav-list a, menu ul a', function () {
-        if (!$($(this).attr('href')).length) return;
+        let elemId = '#' + this.hash.substr(1);
+        if (!$(elemId).length) return;
         $('html, body').animate({
-            scrollTop: $($(this).attr('href')).offset().top
-        })
+            scrollTop: $(elemId).offset().top
+        });
     })
     .on('click', 'menu a', function () {
         $('body').removeClass('menu-opened');
@@ -165,30 +196,30 @@ $(document)
 
 function smoothCarousel(element, rtl = false) {
     let slider = element.owlCarousel({
-        center: true,
+        // center: true,
         // items: 2,
         loop: true,
-        // margin: 50,
         nav: false,
         dots: false,
         rtl,
         autoWidth: true,
-        autoplay: true,
-        slideTransition: 'linear',
-        autoplayTimeout: 6000,
-        autoplaySpeed: 6000,
-        autoplayHoverPause: true,
-        touchDrag: true,
-        mouseDrag: true,
         responsive: {
             0: {
-                items: 2
+                // items: 1.5
+                dragEndSpeed: 25000,
             },
-            600: {
-                items: 2
+            580: {
+                // dragEndSpeed: 25000,
+                // items: 1.5
             },
             1000: {
-                items: 2
+                autoplay: true,
+                slideTransition: 'linear',
+                autoplayTimeout: 6000,
+                autoplaySpeed: 6000,
+                autoplayHoverPause: true,
+                touchDrag: true,
+                mouseDrag: true,
             }
         }
     });

@@ -4,9 +4,10 @@
         flex-direction: column;
         min-height: 100dvh;
         padding-top: 22dvh;
-        &.sm-p {
-            padding-top: 15dvh;
-        }
+        padding-top: 12dvh;
+        // &.sm-p {
+        //     padding-top: 15dvh;
+        // }
     }
     &:not(.inner-hero) .full-h-wrapper {
         padding-bottom: 8dvh;
@@ -22,23 +23,50 @@
     .media-content {
         text-align: center;
         height: 44dvh;
+        height: 55dvh;
         display: flex;
         flex-direction: column;
         img {
             margin: auto;
             max-height: 100%;
         }
+        > div {
+            height: 100%;
+        }
+        @media (max-height: 580px) {
+            height: 70vh;
+        }
+        [class*="col"] {
+            display: flex;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            @media (max-width: 576px) {
+                flex: auto;
+            }
+        }
+        // .img-2 .col {
+        //     @media (max-width: 576px) {
+        //         width: 100%;
+        //         height: 50%;
+        //     }
+        // }
+        // .img-6 .col {
+        //     @media (max-width: 576px) {
+        //         width: 50%;
+        //         height: calc(100% / 3);
+        //     }
+        // }
     }
     .owl-carousel,
     .owl-stage,
     .owl-stage-outer {
-        height: 40dvh;
+        height: 40svh;
     }
     .item {
-        height: 40dvh;
+        height: 40svh;
         padding: 0 rem(25);
         img {
-            max-height: 100%;
+            height: 40svh;
         }
     }
     .section-foot {

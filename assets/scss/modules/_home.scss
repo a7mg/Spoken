@@ -33,10 +33,29 @@
         font-size: 5vw;
         color: $primary;
         margin-bottom: 6.5vw;
+        margin-bottom: 3vw;
         font-family: $fontBlackHand;
         @media (max-width: 580px) {
             font-size: rem(70);
+            margin-bottom: rem(50);
+        }
+    }
+    .link {
+        margin-bottom: 6.5vw;
+        a {
+            font-size: 1.7vw;
+            img {
+                width: 2.5vw;
+            }
+        }
+        @media (max-width: 580px) {
             margin-bottom: rem(130);
+            a {
+                font-size: rem(30);
+                img {
+                    width: rem(40);
+                }
+            }
         }
     }
     .down-arrow {
@@ -138,10 +157,45 @@
     }
     &.color-palette {
         color: $white;
+        .primary,
+        .secondary {
+            display: none;
+        }
+        &.primary .primary {
+            display: block;
+        }
+        &.secondary .secondary {
+            display: block;
+        }
         .gradient {
-            padding: rem(120) 0 rem(150);
-            background: rgb(26, 42, 239);
-            background: linear-gradient(90deg, rgba(26, 42, 239, 1) 0%, rgba(119, 48, 235, 1) 100%);
+            padding: 7svh 0 8svh;
+            @media (min-width: 767px) {
+                min-height: 50svh;
+            }
+        }
+        &.primary .gradient {
+            background: rgb(32, 28, 249);
+            background: linear-gradient(90deg, rgba(32, 28, 249, 1) 0%, rgba(135, 28, 243, 1) 100%);
+        }
+        &.secondary .gradient {
+            padding: 7svh 0 8svh;
+            background-color: #ff3c00;
+        }
+        .btn {
+            color: #fff;
+            font-size: rem(25);
+            font-weight: $fontMedium;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            border: 0;
+            &:after {
+                width: rem(18.5);
+                height: rem(22);
+                content: "";
+                background: url(../../images/icons/arrow-right.svg) no-repeat center / 100%;
+                margin-inline-start: rem(9);
+            }
         }
         .section-title {
             font-size: rem(80);
@@ -156,7 +210,7 @@
         .color-list {
             display: flex;
             height: 50svh;
-            min-height: rem(500);
+            min-height: rem(400);
             position: relative;
             overflow: hidden;
             display: flex;
@@ -327,45 +381,45 @@
         .link {
             display: flex;
             justify-content: center;
-            a {
-                font-size: rem(36);
-                color: inherit;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: relative;
-                img {
-                    width: rem(40);
-                    transition: transform ease 0.5s;
-                }
-                &::before {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    overflow: hidden;
-                    max-width: 0;
-                    color: #e84e27;
-                    content: attr(data-hover);
-                    -webkit-transition: max-width 0.5s;
-                    -moz-transition: max-width 0.5s;
-                    transition: max-width 0.5s;
-                    white-space: nowrap;
-                }
-                &:hover {
-                    &::before {
-                        max-width: 100%;
-                    }
-                    img {
-                        transform: translate(10%, -10%);
-                    }
-                }
-            }
         }
         .animation {
             margin-top: rem(60);
             > * {
                 width: rem(103);
             }
+        }
+    }
+}
+a.brand-manual-link {
+    font-size: rem(36);
+    color: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    img {
+        width: rem(40);
+        transition: transform ease 0.5s;
+    }
+    &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        max-width: 0;
+        color: #e84e27;
+        content: attr(data-hover);
+        -webkit-transition: max-width 0.5s;
+        -moz-transition: max-width 0.5s;
+        transition: max-width 0.5s;
+        white-space: nowrap;
+    }
+    &:hover {
+        &::before {
+            max-width: 100%;
+        }
+        img {
+            transform: translate(10%, -10%);
         }
     }
 }
