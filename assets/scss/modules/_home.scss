@@ -477,6 +477,18 @@ a.brand-manual-link {
     }
 }
 .visuals {
+    display: flex;
+    flex-grow: 1;
+    > .row {
+        flex-grow: 1;
+        > div {
+            display: flex;
+            align-items: center;
+            > div {
+                flex-grow: 1;
+            }
+        }
+    }
     .visuals-grid {
         .visual {
             cursor: pointer;
@@ -497,6 +509,24 @@ a.brand-manual-link {
         }
     }
     .visuals-large {
+        width: 100%;
+        &.loading {
+            position: relative;
+            min-height: rem(100);
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                width: rem(50);
+                height: rem(50);
+                background: url(../../images/header-logo.svg) no-repeat center / 100%;
+                z-index: 1;
+            }
+        }
         img {
             max-height: 50vh;
         }

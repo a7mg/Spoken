@@ -37,7 +37,7 @@ function onDocumentReady() {
         // });
         // carousels.push(slider);
     });
-    
+
     checkOrientation();
 }
 var activeList;
@@ -165,10 +165,25 @@ $(document)
     })
     .on('mouseenter', '.visuals-grid .visual', function () {
         var me = $(this);
-        let parent = me.parents('.visuals');
-        parent.find('.visuals-grid .visual').removeClass('active');
+        let sParent = me.parents('.visuals');
+        sParent.find('.visuals-grid .visual').removeClass('active');
         me.toggleClass('active');
-        parent.find('.visuals-large img:last').attr('src', me.find('img').attr('src'));
+        let imgSrc = me.data('src') || me.find('img').attr('src');
+        let lParent = sParent.find('.visuals-large');
+        let image = lParent.find('img:last');
+        lParent.addClass('loading');
+        image.hide();
+
+        var img = new Image();
+        img.src = imgSrc;
+        img.onload = function () {
+            image.attr('src', imgSrc).fadeIn();
+            lParent.removeClass('loading');
+        };
+
+        img.onerror = function () {
+            lParent.removeClass('loading');
+        };
     })
     .on('click', '.primary .btn', function () {
         $('.color-palette').removeClass('primary').addClass('secondary');
