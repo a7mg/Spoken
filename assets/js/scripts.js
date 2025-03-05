@@ -21,9 +21,9 @@ function onDocumentReady() {
     smoothCarousel($('.left-slider'));
     smoothCarousel($('.right-slider'), true);
     playLottie();
-    if (document.getElementById('imagesGrid')) {
-        document.getElementById('imagesGrid').play();
-    }
+    // if (document.getElementById('imagesGrid')) {
+    //     document.getElementById('imagesGrid').play();
+    // }
     $('.owl-carousel.auto-width').each(function (i, n) {
         smoothCarousel($(n));
         // let slider = $(n).owlCarousel({
@@ -171,19 +171,23 @@ $(document)
         let imgSrc = me.data('src') || me.find('img').attr('src');
         let lParent = sParent.find('.visuals-large');
         let image = lParent.find('img:last');
-        lParent.addClass('loading');
-        image.hide();
+        if (me.data('src')) {
+            lParent.addClass('loading');
+            image.hide();
 
-        var img = new Image();
-        img.src = imgSrc;
-        img.onload = function () {
-            image.attr('src', imgSrc).fadeIn();
-            lParent.removeClass('loading');
-        };
+            var img = new Image();
+            img.src = imgSrc;
+            img.onload = function () {
+                image.attr('src', imgSrc).fadeIn();
+                lParent.removeClass('loading');
+            };
 
-        img.onerror = function () {
-            lParent.removeClass('loading');
-        };
+            img.onerror = function () {
+                lParent.removeClass('loading');
+            };
+        } else {
+            image.attr('src', imgSrc);
+        }
     })
     .on('click', '.primary .btn', function () {
         $('.color-palette').removeClass('primary').addClass('secondary');
@@ -208,6 +212,9 @@ $(document)
     .on('click', 'menu a', function () {
         $('body').removeClass('menu-opened');
     })
+    .on('click', '.rotate-popup', function () {
+        $(this).fadeOut();
+    })
 
 function smoothCarousel(element, rtl = false) {
     let slider = element.owlCarousel({
@@ -218,10 +225,17 @@ function smoothCarousel(element, rtl = false) {
         dots: false,
         rtl,
         autoWidth: true,
+        autoplay: true,
+        slideTransition: 'linear',
+        autoplayTimeout: 10000,
+        autoplaySpeed: 10000,
+        // autoplayHoverPause: true,
+        touchDrag: true,
+        mouseDrag: true,
+        dragEndSpeed: 10000,
         responsive: {
             0: {
                 // items: 1.5
-                dragEndSpeed: 25000,
             },
             580: {
                 // dragEndSpeed: 25000,
@@ -229,12 +243,6 @@ function smoothCarousel(element, rtl = false) {
             },
             1000: {
                 autoplay: true,
-                slideTransition: 'linear',
-                autoplayTimeout: 6000,
-                autoplaySpeed: 6000,
-                autoplayHoverPause: true,
-                touchDrag: true,
-                mouseDrag: true,
             }
         }
     });

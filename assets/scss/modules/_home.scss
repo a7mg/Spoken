@@ -15,7 +15,7 @@
             width: 25%;
             @media (max-width: 580px) {
                 width: auto;
-                height: rem(110);
+                width: 40%;
             }
         }
     }
@@ -24,8 +24,8 @@
         font-size: 2.75vw;
         margin-top: 2vw;
         @media (max-width: 580px) {
-            font-size: rem(40);
-            margin-top: rem(40);
+            font-size: 4.5vw;
+            margin-top: 4vw;
         }
     }
     .title {
@@ -36,8 +36,8 @@
         margin-bottom: 3vw;
         font-family: $fontBlackHand;
         @media (max-width: 580px) {
-            font-size: rem(70);
-            margin-bottom: rem(50);
+            font-size: 8vw;
+            margin-bottom: 5vw;
         }
     }
     .link {
@@ -51,9 +51,9 @@
         @media (max-width: 580px) {
             margin-bottom: rem(130);
             a {
-                font-size: rem(30);
+                font-size: 4.5vw;
                 img {
-                    width: rem(40);
+                    width: 5vw;
                 }
             }
         }
@@ -63,6 +63,10 @@
         display: inline-block;
         width: rem(55);
         height: rem(55);
+        @media (max-width: 580px) {
+            width: rem(40);
+            height: rem(40);
+        }
         background: url(#{$imgPath}/icons/arrow-down-primary.svg) center / 100%;
     }
     .art-wrapper {
@@ -303,6 +307,14 @@
             width: rem(1000);
             max-width: 100%;
         }
+        @media (max-width: 767px) {
+            h3 {
+                font-size: rem(34);
+            }
+            h2 {
+                font-size: rem(50);
+            }
+        }
     }
     &.mobile-app {
         background-color: $black;
@@ -335,6 +347,13 @@
         img {
             height: 35vh;
             max-height: rem(380);
+            width: auto;
+            @media (max-width: 992px) {
+                height: rem(250);
+            }
+            @media (max-width: 480px) {
+                height: rem(200);
+            }
         }
     }
     &.brand-info-section {
@@ -435,6 +454,9 @@ a.brand-manual-link {
                 height: rem(70);
                 opacity: 0.8;
                 transition: all ease 0.4s;
+                @media (max-width: 767px) {
+                    height: rem(45);
+                }
                 &:first-child {
                     display: block;
                 }
@@ -459,6 +481,9 @@ a.brand-manual-link {
             font-size: rem(12);
             margin-top: rem(10);
             text-transform: capitalize;
+            @media (max-width: 767px) {
+                font-size: rem(16);
+            }
         }
     }
     .icon-large {
@@ -468,11 +493,18 @@ a.brand-manual-link {
         img {
             height: rem(300);
             margin-bottom: rem(80);
+            @media (max-width: 767px) {
+                height: rem(200);
+                margin-bottom: rem(30);
+            }
         }
         h3 {
             font-size: rem(66);
             margin: 0;
             text-transform: capitalize;
+            @media (max-width: 767px) {
+                font-size: rem(45);
+            }
         }
     }
 }
@@ -514,7 +546,7 @@ a.brand-manual-link {
             position: relative;
             min-height: rem(100);
             &:after {
-                content: '';
+                content: "";
                 position: absolute;
                 top: 0;
                 left: 0;
