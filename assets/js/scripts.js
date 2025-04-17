@@ -171,22 +171,19 @@ $(document)
         let imgSrc = me.data('src') || me.find('img').attr('src');
         let lParent = sParent.find('.visuals-large');
         let image = lParent.find('img:last');
+        image.attr('src', me.find('img').attr('src'));
         if (me.data('src')) {
-            lParent.addClass('loading');
-            image.hide();
-
+            // lParent.addClass('loading');
+            // image.hide();
             var img = new Image();
             img.src = imgSrc;
             img.onload = function () {
                 image.attr('src', imgSrc).fadeIn();
-                lParent.removeClass('loading');
+                // lParent.removeClass('loading');
             };
-
-            img.onerror = function () {
-                lParent.removeClass('loading');
-            };
-        } else {
-            image.attr('src', imgSrc);
+            // img.onerror = function () {
+            //     lParent.removeClass('loading');
+            // };
         }
     })
     .on('click', '.primary .btn', function () {
